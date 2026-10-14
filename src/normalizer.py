@@ -91,7 +91,7 @@ WARFRAME_MARKET_TO_CANONICAL = {
     "ammo_maximum": "ammo_max",
     "blast": "blast",
     "magnetic": "magnetic",
-    "corrorsive": "corrorsive",
+    "corrosive": "corrosive",
     "damage_to_orokin": "orokin_damage",
     "damage_to_scaldra": "scaldra_damage",
     "weak_point_damage": "weak_point_damage",
