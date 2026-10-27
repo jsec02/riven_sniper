@@ -1,7 +1,7 @@
 from pathlib import Path
 
 # Database
-DATABASE = Path("/home/master/databases/market.db")
+DATABASE = Path("data/market.db")
 
 # Aggregation - filtering and godroll selection
 MAX_PRICE = 50000  # Filter out unrealistic/troll listings above this price
