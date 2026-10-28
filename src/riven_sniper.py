@@ -22,22 +22,22 @@ logging.basicConfig(
 
 def should_aggregate() -> bool:
     """Check if aggregator hasn't run today yet."""
-    marker_file = Path("logs/.last_aggregate")
+    now = datetime.datetime.now()
+
+    # Only aggregate during 4am hour
+    if now.hour != 4:
+        return False
+
+    marker_file = Path("data/.last_aggregate")
     today = datetime.date.today().isoformat()
 
     # Check if we already aggregated today
-    if marker_file.exists():
-        last_run = marker_file.read_text().strip()
-        if last_run == today:
-            return False
+    if marker_file.exists() and marker_file.read_text().strip() == today:
+        return False
 
-    # Only aggregate during 4am hour
-    now = datetime.datetime.now()
-    if now.hour == 4:
-        marker_file.write_text(today)
-        return True
-
-    return False
+    # Path.write_text() creates the file if it does not exist
+    marker_file.write_text(today)
+    return True
 
 
 def run_pipeline() -> None:
